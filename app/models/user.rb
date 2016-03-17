@@ -2,6 +2,14 @@
 
 class User < ActiveRecord::Base
 
+	has_many :authored_surveys, class_name: "Survey"
+	has_many :participations
+	has_many :taken_surveys, through: :participations, source: :survey
+	has_many :answers, through: :participations
+
+	#esto esta raro hay que checarlo
+	has_many :options, through: :answers
+
 	validates :email, uniqueness: true
 
     include BCrypt

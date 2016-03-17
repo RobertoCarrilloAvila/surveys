@@ -25,9 +25,24 @@ class CrearUser < ActiveRecord::Migration
     end
 
 
-    create_table :answers do |t|
-  		t.string :description
+    create_table :options do |t|
+    	t.string :description
       	t.belongs_to :question, index: true
+
+      	t.timestamps
+    end
+
+    create_table :answers do |t|
+    	t.belongs_to :participation, index: true
+      	t.belongs_to :options, index: true
+
+      	t.timestamps
+    end
+
+    create_table :participation do |t|
+      	t.belongs_to :user, index: true
+      	t.belongs_to :survey, index: true
+      	t.belongs_to :answer, index: true
 
       	t.timestamps
     end
