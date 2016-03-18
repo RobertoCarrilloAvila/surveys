@@ -1,0 +1,15 @@
+
+<h1><%= @survey.title %></h1>
+
+<ol>
+  
+  <% @survey.questions.each do |q| %>
+    <h3><li><%= q.description %></li></h3>
+    <% q.options.each do |opc| %>
+      <ul>
+        <li><%= opc.description %></li>
+      </ul>
+    <% end %>
+  <% end %>
+
+</ol>

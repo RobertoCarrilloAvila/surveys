@@ -8,6 +8,8 @@ get '/user/:user/index' do
   erb :index
 end
 
+
+
 get '/user/:user/answers' do
   @user = session[:user]
   erb :index_answers

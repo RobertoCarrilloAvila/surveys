@@ -1,9 +1,12 @@
-<a href=""></a>
 
 <h1>Bienvenido <%= @user.name %></h1>
 
+<form action="/survey/<%= @user.name %>/new" method="get">
+  <input type="text" name="name" style="width: 50%">
+  <input type="submit" value="Nueva Encuesta">
+</form>
 
-  
+<h3>Encuestas</h3>
 <table style="width:100%">
   <tr>
     <th style="width: 100%">Titulo</th>
@@ -13,9 +16,9 @@
   <% @user.authored_surveys.each do |survey| %>
     <tr>
       <td>
-        <a href="" class="link"><%= survey.title %></a>
+        <a href="/survey/id?id=<%= survey.id %>" class="link"><%= survey.title %></a>
       </td>
-      <td><a href="" class="link" ><%= survey.answers.length %></a></td>
+      <td><a href="/survey/options?id=<%= survey.id %>" class="link" ><%= survey.answers.length %></a></td>
     </tr>
   <% end %>
 
