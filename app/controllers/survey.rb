@@ -5,7 +5,14 @@ end
 
 get '/survey/:user/new' do
   @survey_name = params[:name]
+  #session[:survey] = Survey.create(title: @survey_name)
+  #session[:user].authored_surveys << session[:survey]
   erb :new_survey
+end
+
+
+post '/survey/:user/new/survey' do
+  
 end
 
 
