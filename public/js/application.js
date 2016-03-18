@@ -1,7 +1,17 @@
 $(document).ready(function() {
-	// Este código corre después de que `document` fue cargado(loaded) 
-	// completamente. 
-	// Esto garantiza que si amarramos(bind) una función a un elemento 
-	// de HTML este exista ya en la página. 
+	
+
+  $("#create_question").click(function() {
+    console.log("boton")
+    var question = $("#name_question").val();
+    console.log(question)
+    $("#questions").append("
+      <div>
+      <h1>"+question+"</h1>
+      
+      </div>");
+    var question = $("#name_question").val("");
+  });
+
 
 });
