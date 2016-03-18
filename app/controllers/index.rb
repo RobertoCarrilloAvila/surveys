@@ -1,16 +1,13 @@
 
 enable :sessions
 
-# before '/' do
-# 	#puts "before"
-# 	puts session[:user]
-# 	redirect to '/' if session[:user]!=nil
-# 	redirect to '/login'
-# end
+before '/' do
+	redirect to '/login' if session[:user]==nil
+end
 
 get '/' do
-	@name = session[:user].name
-	erb :index
+	name = session[:user].name
+	redirect to "/user/#{name}/index"
 end
 
 
@@ -21,7 +18,6 @@ end
 post '/login' do
 	email = params[:email]
 	pass = params[:pass]
-	puts "////////////////////////////////"
 	puts email
 	puts pass
 	user = User.authenticate(email, pass)

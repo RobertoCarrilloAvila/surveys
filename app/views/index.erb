@@ -1,4 +1,22 @@
-<h1>Bienvenido a Sinatra! <%=  %> </h1>
-<p>Este es un esqueleto de sinatra que armamos para ti</p>
+<a href=""></a>
+
+<h1>Bienvenido <%= @user.name %></h1>
+
 
   
+<table style="width:100%">
+  <tr>
+    <th style="width: 100%">Titulo</th>
+    <th>Respuestas</th>
+  </tr>
+
+  <% @user.authored_surveys.each do |survey| %>
+    <tr>
+      <td>
+        <a href="" class="link"><%= survey.title %></a>
+      </td>
+      <td><a href="" class="link" ><%= survey.answers.length %></a></td>
+    </tr>
+  <% end %>
+
+</table>

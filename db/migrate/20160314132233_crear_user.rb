@@ -34,15 +34,14 @@ class CrearUser < ActiveRecord::Migration
 
     create_table :answers do |t|
     	t.belongs_to :participation, index: true
-      	t.belongs_to :options, index: true
+      	t.belongs_to :option, index: true
 
       	t.timestamps
     end
 
-    create_table :participation do |t|
+    create_table :participations do |t|
       	t.belongs_to :user, index: true
       	t.belongs_to :survey, index: true
-      	t.belongs_to :answer, index: true
 
       	t.timestamps
     end

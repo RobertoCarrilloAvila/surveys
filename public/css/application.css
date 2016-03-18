@@ -7,3 +7,21 @@
 th {
   text-align: left;
 }
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+
+.link{
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover{
+  text-decoration: underline;
+  color: red;
+}
