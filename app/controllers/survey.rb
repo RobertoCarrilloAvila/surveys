@@ -6,14 +6,21 @@ end
 get '/survey/:user/new' do
   @survey_name = params[:name]
   @user = session[:user]
-  #session[:user].authored_surveys << Survey.create(title: @survey_name)
+  puts "survey_name: #{@survey_name}"
+  session[:user].authored_surveys << Survey.create(title: @survey_name)
   erb :new_survey
 end
 
 
-post '/survey/:user/new/question' do
+post '/survey/new/question' do
   user = session[:user]
   last_survey = user.authored_surveys.last
+  new_question << Question.create(description: params[:title])
+  n_options = params[:n_options]
+  n_options.times do |num|
+    
+  end
+  puts params.inspect
 end
 
 

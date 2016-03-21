@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 		puts "user: #{user.inspect}"
 		puts "-------------------------------------------------------"
 		puts "pass: #{user_password}"
+		return nil if user==nil
 		puts user.password==(user_password)
 		if user && (user.password == user_password)
 			return user
