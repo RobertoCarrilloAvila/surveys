@@ -3,7 +3,7 @@ $(document).ready(function() {
   $("#add_option").hide();
 
   var countQuestion = 1;//contador para los div de las preguntas
-  var lastQuestionDiv = null;
+  var lastQuestionDiv = null;//indica en que div fue el ultimo que creamos
 
   $("#create_question").click(function() {
     //console.log("boton")
@@ -20,16 +20,25 @@ $(document).ready(function() {
 
 
   $("#create_option").click(function() {
-    var option = $("#name_question").val();
+    var option = $("#name_option").val();
     if(option!="" && option!=null){
-      $(lastQuestionDiv).append("");
+      var actualDiv = "#"+lastQuestionDiv+" ol";
+      console.log(actualDiv);
+      $(actualDiv).append("<li>"+option+"</li>");
+      $("#name_option").val("");
     }//if
+  });
+
+
+  $("#question_ok").click(function() {
+    $("#add_question").show();
+    $("#add_option").hide();
   });
 
 
   function questionDiv(title, number) {
     lastQuestionDiv = "q"+number;
-    return "<div id=\"q"+number+"\"><h1>"+title+"</h1></div>";
+    return "<div id=\"q"+number+"\"><h1>"+title+"</h1><ol></ol></div>";
   }
 
 
