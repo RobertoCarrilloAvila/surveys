@@ -1,6 +1,17 @@
 
 <h1><%= @survey.title %></h1>
 
+<% user_answer_id = nil %>
+
 <% @participations.each do |p| %>
+  <% if user_answer_id != p.user_id %>
+    <% user_answer_id = p.user_id %>
+    <h3><%= User.find_by(id: p.user_id).name %></h3>
+  <% end %>
   
+  <ul>
+    <% p.answers.each do |answer| %>
+    <li><%= answer.option.description %></li>
+  <% end %>
+  </ul>
 <% end %>
