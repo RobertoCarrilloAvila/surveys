@@ -15,11 +15,13 @@ end
 post '/survey/new/question' do
   user = session[:user]
   last_survey = user.authored_surveys.last
-  new_question << Question.create(description: params[:title])
+  new_question = Question.create(description: params[:title])
   n_options = params[:n_options]
-  n_options.times do |num|
-    
+  n_options.to_i.times do |num|
+    new_question.options << Option.create(description: params["opc#{num}".to_sym])
   end
+  puts "*"*30
+  last_survey.questions << new_question
   puts params.inspect
 end
 
