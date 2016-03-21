@@ -11,8 +11,9 @@ get '/survey/:user/new' do
 end
 
 
-post '/survey/:user/new/survey' do
-  
+post '/survey/:user/new/question' do
+  user = session[:user]
+  last_survey = user.authored_surveys.last
 end
 
 

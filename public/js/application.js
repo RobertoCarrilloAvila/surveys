@@ -31,9 +31,27 @@ $(document).ready(function() {
 
 
   $("#question_ok").click(function() {
+
     $("#add_question").show();
     $("#add_option").hide();
   });
+
+
+
+
+  $("#formulario").submit(function( event ) {
+    //event.preventDefault();
+    //var variables = $( "#formulario" ).serialize();
+
+    $.post('/', variables, function(resp) {
+        //console.log("hola");
+        $( "#result" ).html(resp);
+        console.log(resp);
+    });
+
+  });
+
+
 
 
   function questionDiv(title, number) {
